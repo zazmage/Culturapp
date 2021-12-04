@@ -19,13 +19,9 @@ export const { setDatabase } = databaseSlice.actions;
 export default databaseSlice.reducer;
 
 export const getData = () => (dispatch) => {
-  getDocs(collection(db, "eventos"))
+  getDocs(collection(db, "eventsdb"))
     .then((res) => {
-      const database = res.docs.map((el) => {
-        const element = el.data();
-        delete element.crawlTimestamp;
-        return element;
-      });
+      const database = res.docs.map((el) => el.data());
       dispatch(setDatabase(database));
     })
     .catch((error) => console.log(error));
