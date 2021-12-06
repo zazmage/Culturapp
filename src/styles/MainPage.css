@@ -51,8 +51,52 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.card a {
+/* ------------------------------------------ */
+
+
+.cont-relacionados{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    overflow-x: scroll;
+    height: auto;
+}
+
+.card-info{
+    width: 500px;
+    min-height: 300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 10px;
+    transition: all 0.25s;
+}
+
+.card-info img{
+    margin-top: 20px;
+    height: 200px;
+    width: 100%;
+}
+
+
+.card-info h4{
+    text-align: left;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 0 1rem;
+    font-size: 0.7em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-info a {
     font-weight: 500;
     text-decoration: none;
     color: #3498db;
+}
+
+.exit .material-icons{
+    margin: 20px;
+    font-size: 3em;
+    color: rgb(255, 136, 24);
 }
