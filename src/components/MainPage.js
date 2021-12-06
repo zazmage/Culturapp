@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../store/slices/database/index";
 import Event from "./Event";
 
-
-
 const MainPage = () => {
-
   const { data } = useSelector((state) => state.database);
   const dispatch = useDispatch();
 
@@ -29,6 +26,8 @@ const MainPage = () => {
     getData();
     return
   }, [])*/
+
+  //console.log(data);
 
   return (
     <>

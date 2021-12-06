@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { getData } from "../store/slices/database";
 import Event from "./Event";
 
-
 const EventInfo = () => {
-
+  const [eventSelect, setEventSelect] = useState(null);
   const { data } = useSelector((state) => state.database);
-  const [prodSelec, setProdSelec] = useState(null);
+  const dispatch = useDispatch();
   const params = useParams();
 
+  useEffect(() => {
+    dispatch(getData());
+  }, [dispatch]);
 
   useEffect(() => {
     if (data !== null) {
-      setProdSelec(data.filter((el) => el.eventName === params.eventsName)[0]);
+      setEventSelect(data.find((el) => el.id === params.eventId));
     }
-  }, [data, params.eventsName]);
-
+  }, [data, params.eventId]);
 
   return (
     <>
@@ -25,10 +27,16 @@ const EventInfo = () => {
       <Link to="/">
         <button>Atras</button>
       </Link>
-      {prodSelec === null ? (
+      {eventSelect === null ? (
         <h3>Cargando...</h3>
       ) : (
-        <h1>hi</h1>
+        <div>
+          <h1>{eventSelect["event-name"]}</h1>
+          <p>{eventSelect["price"]}</p>
+          <div>
+            {/* {data.filter(el => el.category === category).map(el => <eventos de la misma categoria />)} */}
+          </div>
+        </div>
       )}
     </>
   );

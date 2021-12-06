@@ -18,7 +18,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/eventInfo">
-          <Route path=":eventsName" element={<EventInfo />} />
+            <Route path=":eventId" element={<EventInfo />} />
           </Route>
 
           <Route path="/" element={<App />} />
