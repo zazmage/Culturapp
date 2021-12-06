@@ -21,7 +21,12 @@ export default databaseSlice.reducer;
 export const getData = () => (dispatch) => {
   getDocs(collection(db, "eventsdb"))
     .then((res) => {
-      const database = res.docs.map((el) => el.data());
+      //console.log(res.docs[0].id);
+
+      const database = res.docs.map((el) => {
+        return { ...el.data(), id: el.id };
+      });
+
       dispatch(setDatabase(database));
     })
     .catch((error) => console.log(error));
