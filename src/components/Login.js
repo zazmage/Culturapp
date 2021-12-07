@@ -11,6 +11,7 @@ const Login = () => {
   return (
     <div>
       <h2>Soy un Login</h2>
+      <Link to="/register">Registrarse</Link>
     </div>
   );
 };
