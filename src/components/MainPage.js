@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../store/slices/database/index";
+import { Spinner } from "../styles/spinnerStyleComp";
 import Event from "./Event";
 
 const MainPage = () => {
@@ -35,7 +36,7 @@ const MainPage = () => {
     <>
       <div className="main-contenedor">
         {data === null ? (
-          <p>Cargando</p>
+          <Spinner />
         ) : (
           data.map((el) => <Event key={el.id} props={el} />)
         )}
