@@ -17,10 +17,13 @@ ReactDOM.render(
       <GlobalStyle />
       <BrowserRouter>
         <Routes>
+          <Route path="/eventInfo">
+            <Route path=":eventId" element={<EventInfo />} />
+          </Route>
+
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/eventInfo" element={<EventInfo />} />
           <Route path="/addEvent" element={<AddEvent />} />
         </Routes>
       </BrowserRouter>
