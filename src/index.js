@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import EventInfo from "./components/EventInfo";
 import AddEvent from "./components/AddEvent";
+import UserInfo from "./components/UserInfo";
 
 ReactDOM.render(
   <AuthProvider>
@@ -25,6 +26,7 @@ ReactDOM.render(
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/addEvent" element={<AddEvent />} />
+          <Route path="/userInfo" element={<UserInfo />} />
         </Routes>
       </BrowserRouter>
     </Provider>
