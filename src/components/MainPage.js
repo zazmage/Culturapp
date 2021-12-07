@@ -4,10 +4,12 @@ import { getData } from "../store/slices/database/index";
 import Event from "./Event";
 
 const MainPage = () => {
+  // Use selector se trae el estado de un reductor dado
   const { data } = useSelector((state) => state.database);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // Get data se trae la información de la base de datos y se despacha al reducer
     dispatch(getData());
   }, [dispatch]);
 
