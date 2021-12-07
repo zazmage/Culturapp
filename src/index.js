@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import { GlobalStyle } from "./styles/styledComp";
+import { GlobalStyle } from "./styles/StyledComp";
 import { Provider } from "react-redux";
 import store from "./store";
 import App from "./App";
