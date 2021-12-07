@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { getData } from "../store/slices/database";
+import "../styles/MainPage.css";
 import Event from "./Event";
 
 const EventInfo = () => {
@@ -23,20 +24,32 @@ const EventInfo = () => {
 
   return (
     <>
-      <h2>Soy un EventInfo</h2>
       <Link to="/">
-        <button>Atras</button>
+        <div className="exit"><i className="material-icons">chevron_left</i></div>
       </Link>
       {eventSelect === null ? (
         <h3>Cargando...</h3>
       ) : (
-        <div>
-          <h1>{eventSelect["event-name"]}</h1>
-          <p>{eventSelect["price"]}</p>
-          <div>
-            {/* {data.filter(el => el.category === category).map(el => <eventos de la misma categoria />)} */}
+        <>
+          <div className="cont-eventinfo">
+            <Event key={eventSelect.id} props={eventSelect} />
           </div>
-        </div>
+          <h3 className="relacionados">Productos relacionados</h3>
+
+          <div className="cont-relacionados">
+            {data
+              .filter((el) => el.category === eventSelect.category)
+              .map((el) => (
+                  <div className="card-info" key={el.id}>
+                    <h4>{el["event-name"]}</h4>
+                    <img src={el["img-url"]} alt={el["event-name"]} />
+                    <Link to={`/eventInfo/${el.id}`}>
+                      <span>Leer más</span>
+                    </Link>
+                  </div>
+              ))}
+          </div>
+        </>
       )}
     </>
   );
