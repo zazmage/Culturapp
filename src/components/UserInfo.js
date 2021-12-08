@@ -13,25 +13,23 @@ const UserInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Get data se trae la información de la base de datos y se despacha al reducer
     dispatch(getData());
   }, [dispatch]);
+
+  console.log(auth);
+
   return (
     <PrivateRoute auth={auth}>
       <div>
-        <h2>UserInfo</h2>
-        <p>Imagen de perfil</p>
-        <p>Nombre de usuario</p>
-        <p>Eventos</p>
+        <h2>{auth && auth.displayName}</h2>
+        <h3>Eventos</h3>
         <div>
           {data === null ? (
             <Spinner />
           ) : (
+            auth &&
             data
-              .filter(
-                (el) =>
-                  el.organization === "Teatro oficina central de los sueños"
-              )
+              .filter((el) => el.uid === auth.uid)
               .map((el) => <UserEvent key={el.id} props={el} />)
           )}
         </div>

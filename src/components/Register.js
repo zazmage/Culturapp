@@ -40,10 +40,16 @@ const Register = () => {
         </div>
         <div className="formButton">
           <button className="google">
-            <img src="https://res.cloudinary.com/dxben47m9/image/upload/v1638854432/culturapp/google-brands_aula04.svg" />
+            <img
+              src="https://res.cloudinary.com/dxben47m9/image/upload/v1638854432/culturapp/google-brands_aula04.svg"
+              alt="Google"
+            />
           </button>
           <button className="fb">
-            <img src="https://res.cloudinary.com/dxben47m9/image/upload/v1638854432/culturapp/facebook-f-brands_bnodwq.svg" />
+            <img
+              src="https://res.cloudinary.com/dxben47m9/image/upload/v1638854432/culturapp/facebook-f-brands_bnodwq.svg"
+              alt="Facebook"
+            />
           </button>
         </div>
         <p>
