@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
     const authStatus = getAuth();
     signInWithEmailAndPassword(authStatus, email, password)
       .then(({ user }) => {
-        setAuth(user.email);
+        setAuth(user);
         console.log("Bienvenido " + (user.displayName || user.email));
         window.alert("Inicio de sesión exitoso");
         navigate("/", {
@@ -77,7 +77,15 @@ const AuthProvider = ({ children }) => {
     e.preventDefault();
     switch (e.target.id) {
       case "login-form":
-        loginEmailPassword(form.email, form.password, navigate);
+        if (form) {
+          if (form.email && form.password) {
+            loginEmailPassword(form.email, form.password, navigate);
+          } else {
+            console.log("Flatan campos");
+          }
+        } else {
+          console.log("Flatan campos");
+        }
         break;
       case "register-form":
         registerEmailPassword(form, navigate);
