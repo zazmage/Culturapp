@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
     const auth = getAuth();
     signInWithPopup(auth, authGoogle)
       .then(({ user }) => {
-        setAuth(user.email);
+        setAuth(user);
         console.log("Inicio de sesión exitoso");
         navigate("/", {
           replace: true,
