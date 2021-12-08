@@ -17,7 +17,6 @@ const AuthProvider = ({ children }) => {
 
   const loginEmailPassword = (email, password, navigate) => {
     const authStatus = getAuth();
-    console.log(auth);
     signInWithEmailAndPassword(authStatus, email, password)
       .then(({ user }) => {
         setAuth(user.email);
@@ -34,15 +33,16 @@ const AuthProvider = ({ children }) => {
   };
 
   const registerEmailPassword = (
-    { name, email, password, secPassword },
+    { name, lastName, email, password, repeatPassword },
     navigate
   ) => {
-    console.log(password, secPassword);
-    if (password === secPassword) {
+    if (password === repeatPassword) {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then(async ({ user }) => {
-          await updateProfile(auth.currentUser, { displayName: name });
+          await updateProfile(auth.currentUser, {
+            displayName: `${name} ${lastName}`,
+          });
           console.log(user);
           window.alert("Registro exitoso");
           navigate("/", {
@@ -74,7 +74,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleAuth = (e, form, navigate) => {
-    // console.log(navigate);
     e.preventDefault();
     switch (e.target.id) {
       case "login-form":
