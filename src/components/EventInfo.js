@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { getData } from "../store/slices/database";
 import "../styles/MainPage.css";
+import { Spinner } from "../styles/spinnerStyleComp";
 import Event from "./Event";
 
 const EventInfo = () => {
@@ -25,10 +26,12 @@ const EventInfo = () => {
   return (
     <>
       <Link to="/">
-        <div className="exit"><i className="material-icons">chevron_left</i></div>
+        <div className="exit">
+          <i className="material-icons">chevron_left</i>
+        </div>
       </Link>
       {eventSelect === null ? (
-        <h3>Cargando...</h3>
+        <Spinner />
       ) : (
         <>
           <div className="cont-eventinfo">
@@ -40,13 +43,13 @@ const EventInfo = () => {
             {data
               .filter((el) => el.category === eventSelect.category)
               .map((el) => (
-                  <div className="card-info" key={el.id}>
-                    <h4>{el["event-name"]}</h4>
-                    <img src={el["img-url"]} alt={el["event-name"]} />
-                    <Link to={`/eventInfo/${el.id}`}>
-                      <span>Leer más</span>
-                    </Link>
-                  </div>
+                <div className="card-info" key={el.id}>
+                  <h4>{el["event-name"]}</h4>
+                  <img src={el["img-url"]} alt={el["event-name"]} />
+                  <Link to={`/eventInfo/${el.id}`}>
+                    <span>Leer más</span>
+                  </Link>
+                </div>
               ))}
           </div>
         </>

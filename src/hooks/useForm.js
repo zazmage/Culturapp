@@ -1,11 +1,23 @@
 import { useState } from "react";
-import { helpHttp } from "../helpers/helpHttp";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig";
+
+const uploadFile = async (file) => {
+  const formData = new FormData();
+  formData.append("upload_preset", "culturapp");
+  formData.append("file", file);
+
+  const res = await fetch("	https://api.cloudinary.com/v1_1/deildujgx/upload", {
+    method: "POST",
+    body: formData,
+  });
+  const json = await res.json();
+  return json.secure_url;
+};
 
 export const useForm = (initialForm, validateForm) => {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [response, setResponse] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,39 +33,38 @@ export const useForm = (initialForm, validateForm) => {
     setErrors(validateForm(form));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrors(validateForm(form));
+  const handleImageFile = async ({ target }, uid) => {
+    const file = target.files[0],
+      res = await uploadFile(file);
+    setForm({
+      ...form,
+      "img-url": res,
+      uid,
+    });
+  };
 
-    if (Object.keys(errors).length === 0) {
-      alert("Enviando Formulario");
-      setLoading(true);
-      helpHttp()
-        .post("https://formsubmit.co/ajax/jonmircha@gmail.com", {
-          body: form,
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        })
-        .then((res) => {
-          setLoading(false);
-          setResponse(true);
-          setForm(initialForm);
-          setTimeout(() => setResponse(false), 5000);
-        });
+  const handleSubmit = async (event, form) => {
+    event.preventDefault();
+    if (form["img-url"] !== "" && form.name !== "") {
+      try {
+        const docRef = await addDoc(collection(db, "eventsdb"), form);
+        console.log("Document written with ID: ", docRef.id);
+        window.alert("Evento añadido con éxito");
+        event.target.reset();
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     } else {
-      return;
+      console.log("Faltan campos");
     }
   };
 
   return {
     form,
     errors,
-    loading,
-    response,
     handleChange,
     handleBlur,
     handleSubmit,
+    handleImageFile,
   };
 };
