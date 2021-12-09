@@ -21,7 +21,6 @@ ReactDOM.render(
           <Route path="/eventInfo">
             <Route path=":eventId" element={<EventInfo />} />
           </Route>
-
           <Route path="/" element={<App />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
