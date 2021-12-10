@@ -7,11 +7,11 @@ import "./font.css";
 export const GlobalStyle = createGlobalStyle`
   ${normalize};
   *{
-   box-sizing: border-box;
-   scroll-behavior: smooth;
-   margin: 0;
-   padding: 0;
-   font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   };
 `;
 
@@ -25,6 +25,25 @@ export const FormContainer = styled.div`
   margin: 5rem 15%;
   box-shadow: 0 4px rgba(0, 0, 0, 0.2);
   font-size: 40px;
+  h4 {
+    color: white;
+    float: left;
+    margin: .4rem;
+  }
+  img{
+    width: 80%;
+    height: 60%;
+    object-fit: scale-down;
+  }
+`;
+
+export const FormUser = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 80%;
+  height: 800px;
+  background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .8));
   .persona,
   .organizacion {
     background-color: #c4c4c4;
@@ -70,4 +89,4 @@ export const FormContainer = styled.div`
       margin: 0.3rem;
     }
   }
-`;
+`

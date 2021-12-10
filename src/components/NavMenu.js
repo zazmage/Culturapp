@@ -4,12 +4,18 @@ import { NavigationMenu, NavigationMenuLogo } from "../styles/NavStyleComp";
 import logo from "../assets/logo.svg";
 import mainLogo from "../assets/mainLogo.svg";
 import leftArrow from "../assets/leftArrow.svg";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import AuthContext from "../context/AuthContext";
 
 const NavMenu = () => {
   let [, setSearchParams] = useSearchParams();
   const { auth } = useContext(AuthContext);
+
+  const [showEvent, setShowEvent] = useState(false)
+
+  const openEvent = () => {
+    setShowEvent(prev => !prev);
+  }
 
   const handleClick = ({ target }) =>
     setSearchParams({ category: target.getAttribute("name") });
