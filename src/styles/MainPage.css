@@ -49,6 +49,11 @@ body{
     height: 3em;
 }
 
+.exit{
+    width: 10px;
+    height: 3em;
+}
+
 .exit .material-icons{
     margin: 20px;
     font-size: 3em;
