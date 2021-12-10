@@ -20,20 +20,46 @@ export const FormContainer = styled.div`
   flex-direction: column;
   width: 70%;
   height: 800px;
-  background-color: #9879fa;
+  background-color: #2F3471;
+  border-radius: 30px;
   align-items: center;
   margin: 5rem 15%;
-  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
   font-size: 40px;
-  h4 {
+  p, input {
     color: white;
-    float: left;
     margin: .4rem;
   }
-  img{
-    width: 80%;
-    height: 60%;
-    object-fit: scale-down;
+  h3 {
+    color: white;
+    text-transform: uppercase;
+    margin: 3rem -2rem;
+  }
+  .continue {
+    margin: 1.5rem 14rem;
+  }
+  button {
+    display: flex;
+    margin-top: 2rem;
+    color: black;
+    background-color: #32B3DA;
+    border-radius: 30px;
+    border: none;
+    padding: .5rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: 5px 5px rgba(0, 0, 0, .4);
+    }
+  }
+  img {
+    transform: translateX(355%);
+    width: 5rem;
+    cursor: pointer;
+  }
+  input {
+    width: 100%;
   }
 `;
 
