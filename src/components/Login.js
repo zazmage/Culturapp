@@ -4,6 +4,7 @@ import { useForm } from "../hooks/useForm";
 import googleIcon from "../assets/btn_google_light_normal_ios.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { PublicRoute } from "../routes/PublicRoute";
+import { FormContainer } from '../styles/StyledComp';
 
 const Login = () => {
   const { auth, handleAuth } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   return (
     <PublicRoute auth={auth}>
-      <div>
+      <FormContainer>
         <div>
           <h3>Iniciar sesión</h3>
           <form id="login-form" onSubmit={(e) => handleAuth(e, form, navigate)}>
@@ -23,7 +24,7 @@ const Login = () => {
               <p>Contraseña</p>
               <input onChange={handleChange} type="password" name="password" />
             </label>
-            <button>Continuar</button>
+            <button className='continue'>Continuar</button>
           </form>
           <img
             id="login-google"
@@ -38,7 +39,7 @@ const Login = () => {
         <Link to="/register">
           <button>Crea tu cuenta de Culturapp</button>
         </Link>
-      </div>
+      </FormContainer>
     </PublicRoute>
   );
 };
