@@ -1,34 +1,62 @@
-
-import { Link, useSearchParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { NavigationMenu, NavigationMenuLogo } from "../styles/NavStyleComp";
+import logo from "../assets/logo.svg";
+import mainLogo from "../assets/mainLogo.svg";
+import leftArrow from "../assets/leftArrow.svg";
+import { useContext, useState } from "react";
+import AuthContext from "../context/AuthContext";
 
 const NavMenu = () => {
-  let [searchParams, setSearchParams] = useSearchParams([]);
+  let [, setSearchParams] = useSearchParams();
+  const { auth } = useContext(AuthContext);
 
-  const handleClick = ({ target }) => {
-    setSearchParams({ category: target.name });
-  }
+  const handleClick = ({ target }) =>
+    setSearchParams({ category: target.getAttribute("name") });
 
-
+  const [navMenuVisible, setNavMenuVisible] = useState(false);
+  const handleNavMenu = () =>
+    setNavMenuVisible((navMenuVisible) => !navMenuVisible);
 
   return (
-    <div>
-      <Link to="/">Culturapp</Link>
-      <button onClick={handleClick} name="cinema">
-        Cine
-      </button>
-      <button onClick={handleClick} name="theater">
-        Teatro
-      </button>
-      <button onClick={handleClick} name="music">
-        Música
-      </button>
-
-      <Link to="/login">Iniciar sesión</Link>
-      <Link to="/addEvent">Agregar evento</Link>
-      <Link to="/userInfo">UserInfo</Link>
-
-      </div>
+    <>
+      <NavigationMenuLogo
+        style={{ visibility: navMenuVisible ? "hidden" : "visible" }}
+        onClick={handleNavMenu}
+      >
+        <img src={logo} alt="Logo" />
+      </NavigationMenuLogo>
+      <NavigationMenu
+        style={{ visibility: navMenuVisible ? "visible" : "hidden" }}
+      >
+        <div className="back-btn">
+          <img src={leftArrow} alt="Left arrow" onClick={handleNavMenu} />
+        </div>
+        <div className="main-page-btn">
+          <Link to="/">
+            <img src={mainLogo} alt="Main logo" />
+          </Link>
+        </div>
+        <div className="nav-btn" style={{ display: auth ? "none" : "auto" }}>
+          <Link to="/login">Iniciar sesión</Link>
+        </div>
+        <div className="nav-btn" style={{ display: auth ? "auto" : "none" }}>
+          <Link to="/userInfo">UserInfo</Link>
+        </div>
+        <div className="nav-btn" style={{ display: auth ? "auto" : "none" }}>
+          <Link to="/addEvent">Agregar evento</Link>
+        </div>
+        <div className="category-btn" onClick={handleClick} name="cinema">
+          <p name="cinema">Cine</p>
+        </div>
+        <div className="category-btn" onClick={handleClick} name="theater">
+          <p name="theater">Teatro</p>
+        </div>
+        <div className="category-btn" onClick={handleClick} name="music">
+          <p name="music">Música</p>
+        </div>
+      </NavigationMenu>
+    </>
   );
 };
 

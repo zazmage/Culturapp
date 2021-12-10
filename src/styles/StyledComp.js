@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "styled-normalize";
 import colors from "./colors";
-import './font.css';
+import "./font.css";
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize};
@@ -15,86 +15,40 @@ export const GlobalStyle = createGlobalStyle`
   };
 `;
 
-export const NavigationBar = styled.div`
-  background-color: ${colors.priBackground};
-  color: ${colors.secText};
-  display: flex;
-  flex-flow: row, nowrap;
-  justify-content: space-around;
-  align-items: center;
-  a {
-    text-decoration: none;
-    flex-grow: 1;
-    &:visited {
-      color: ${colors.secText};
-    }
-  }
-  h1 {
-    text-align: center;
-    cursor: pointer;
-  }
-  p {
-    text-align: center;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 700;
-  }
-  div {
-    display: flex;
-    flex-flow: row, nowrap;
-    justify-content: space-evenly;
-    flex-grow: 2;
-    input {
-      width: 90%;
-      height: 40px;
-      border: none;
-      border-radius: 8px 0 0 8px;
-    }
-    div {
-      background-color: ${colors.primary};
-      width: 48px;
-      border-radius: 0 8px 8px 0;
-      img {
-        width: 24px;
-      }
-    }
-  }
-`;
-
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 70%;
   height: 800px;
-  background-color: #9879FA;
+  background-color: #9879fa;
   align-items: center;
   margin: 5rem 15%;
-  box-shadow: 0 4px rgba(0, 0, 0, .2);
+  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
   font-size: 40px;
   .persona,
   .organizacion {
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     border-radius: 29px;
     border: none;
-    padding: .3rem .5rem;
+    padding: 0.3rem 0.5rem;
     margin: 2rem;
 
     &:hover,
     &:checked {
-      box-shadow: 3px 3px rgba(0, 0, 0, .3);
-      }
+      box-shadow: 3px 3px rgba(0, 0, 0, 0.3);
     }
+  }
   label {
     display: flex;
     color: white;
   }
   input {
     border: none;
-    margin: .5rem;
+    margin: 0.5rem;
     width: 100%;
   }
   .google {
-    background-color: #FB64A5;
+    background-color: #fb64a5;
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -102,18 +56,18 @@ export const FormContainer = styled.div`
     border: none;
     img {
       width: 85%;
-      margin: .3rem;
+      margin: 0.3rem;
     }
   }
   .fb {
-    background-color: #FB64A5;
+    background-color: #fb64a5;
     width: 80px;
     height: 80px;
     margin: 1rem;
     border: none;
     img {
       width: 55%;
-      margin: .3rem;
+      margin: 0.3rem;
     }
   }
 `;
