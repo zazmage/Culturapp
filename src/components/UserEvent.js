@@ -1,3 +1,5 @@
+import React from 'react';
+
 const UserEvent = ({
   props: {
     "img-url": imgUrl,

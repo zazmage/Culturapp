@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/MainPage.css";
 import { Link } from "react-router-dom";
+import { FormContainer } from '../styles/StyledComp';
 
 const Event = ({
   props: {
@@ -13,8 +14,7 @@ const Event = ({
 }) => {
   return (
     <>
-      <div className="container">
-        <div className="card">
+      <FormContainer>
           <h4>{organization}</h4>
           <img src={imgUrl} alt={eventName} />
           <h4>{eventName}</h4>
@@ -22,8 +22,7 @@ const Event = ({
           <Link to={`/eventInfo/${id}`}>
             <span>Leer más</span>
           </Link>
-        </div>
-      </div>
+      </FormContainer>
     </>
   );
 };
