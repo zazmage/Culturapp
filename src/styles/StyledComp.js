@@ -87,7 +87,6 @@ export const FormContainer = styled.div`
   border-radius: 20px;
   align-items: center;
   margin: 5rem 15%;
-  box-shadow: 0 4px rgba(0, 0, 0, .2);
   font-size: 40px;
   h4 {
     color: white;
@@ -102,55 +101,55 @@ export const FormContainer = styled.div`
 `;
 
 export const FormUser = styled.div`
-display: flex;
-flex-direction: column;
-margin: 1rem;
-width: 80%;
-height: 800px;
-background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .8));
-.persona,
-.organizacion {
-  background-color: #C4C4C4;
-  border-radius: 29px;
-  border: none;
-  padding: .3rem .5rem;
-  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 80%;
+  height: 800px;
+  background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .8));
+  .persona,
+  .organizacion {
+    background-color: #C4C4C4;
+    border-radius: 29px;
+    border: none;
+    padding: .3rem .5rem;
+    margin: 2rem;
 
   &:hover,
   &:checked {
     box-shadow: 3px 3px rgba(0, 0, 0, .3);
     }
   }
-label {
-  display: flex;
-  color: white;
-}
-input {
-  border: none;
-  margin: .5rem;
-  width: 100%;
-}
-.google {
-  background-color: #FB64A5;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 1rem;
-  border: none;
-  img {
-    width: 85%;
-    margin: .3rem;
+  label {
+    display: flex;
+    color: white;
   }
-}
-.fb {
-  background-color: #FB64A5;
-  width: 80px;
-  height: 80px;
-  margin: 1rem;
-  border: none;
-  img {
-    width: 55%;
-    margin: .3rem;
+  input {
+    border: none;
+    margin: .5rem;
+    width: 100%;
   }
-}
+  .google {
+    background-color: #FB64A5;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 1rem;
+    border: none;
+    img {
+      width: 85%;
+      margin: .3rem;
+    }
+  }
+  .fb {
+    background-color: #FB64A5;
+    width: 80px;
+    height: 80px;
+    margin: 1rem;
+    border: none;
+    img {
+      width: 55%;
+      margin: .3rem;
+    }
+  }
 `
