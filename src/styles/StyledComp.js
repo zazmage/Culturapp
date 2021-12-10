@@ -37,6 +37,13 @@ export const FormContainer = styled.div`
   .continue {
     margin: 1.5rem 14rem;
   }
+  .create {
+    text-decoration: none;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+  }
   button {
     display: flex;
     margin-top: 2rem;
@@ -51,12 +58,12 @@ export const FormContainer = styled.div`
     &:hover,
     &:focus {
       box-shadow: 5px 5px rgba(0, 0, 0, .4);
-      text-decoration: none;
     }
   }
   img {
-    transform: translateX(350%);
+    transform: translateX(355%);
     width: 5rem;
+    cursor: pointer;
   }
   input {
     width: 100%;
