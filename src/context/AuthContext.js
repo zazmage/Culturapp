@@ -5,15 +5,14 @@ import {
   signInWithPopup,
   updateProfile,
 } from "@firebase/auth";
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { authGoogle } from "../firebase/firebaseConfig";
 
 const AuthContext = createContext();
 
-const initialAuth = null;
-
 const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState(initialAuth);
+  const authState = getAuth();
+  const [auth, setAuth] = useState(authState);
 
   const loginEmailPassword = (email, password, navigate) => {
     const authStatus = getAuth();

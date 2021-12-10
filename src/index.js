@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { GlobalStyle } from "./styles/StyledComp";
 import { Provider } from "react-redux";
@@ -22,6 +22,7 @@ ReactDOM.render(
             <Route path=":eventId" element={<EventInfo />} />
           </Route>
           <Route path="/" element={<App />} />
+          <Route path="*" element={<Navigate to="/" />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/addEvent" element={<AddEvent />} />
