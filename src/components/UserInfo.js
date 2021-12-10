@@ -6,6 +6,7 @@ import { Spinner } from "../styles/spinnerStyleComp";
 import UserEvent from "./UserEvent";
 import { PrivateRoute } from "../routes/PrivateRoute";
 import AuthContext from "../context/AuthContext";
+import { UserInfCont } from "../styles/UserInfStyleComp";
 
 const UserInfo = () => {
   const { data } = useSelector((state) => state.database);
@@ -20,7 +21,7 @@ const UserInfo = () => {
 
   return (
     <PrivateRoute auth={auth}>
-      <div>
+      <UserInfCont>
         <h2>{auth && auth.displayName}</h2>
         <h3>Eventos</h3>
         <div>
@@ -33,7 +34,7 @@ const UserInfo = () => {
               .map((el) => <UserEvent key={el.id} props={el} />)
           )}
         </div>
-      </div>
+      </UserInfCont>
     </PrivateRoute>
   );
 };

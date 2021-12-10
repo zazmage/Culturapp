@@ -1,4 +1,4 @@
-import React from 'react';
+import { UserEventCont } from "../styles/UserInfStyleComp";
 
 const UserEvent = ({
   props: {
@@ -10,11 +10,11 @@ const UserEvent = ({
   },
 }) => {
   return (
-    <div>
-      <img style={{ width: "200px" }} src={imgUrl} alt={eventName} />
+    <UserEventCont>
+      <img src={imgUrl} alt={eventName} />
       <h4>{eventName}</h4>
       <h4>{organization}</h4>
-    </div>
+    </UserEventCont>
   );
 };
 
