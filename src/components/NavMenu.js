@@ -11,11 +11,11 @@ const NavMenu = () => {
   let [, setSearchParams] = useSearchParams();
   const { auth } = useContext(AuthContext);
 
-  const [showEvent, setShowEvent] = useState(false)
+  const [showEvent, setShowEvent] = useState(false);
 
   const openEvent = () => {
-    setShowEvent(prev => !prev);
-  }
+    setShowEvent((prev) => !prev);
+  };
 
   const handleClick = ({ target }) =>
     setSearchParams({ category: target.getAttribute("name") });
@@ -47,7 +47,7 @@ const NavMenu = () => {
           <Link to="/login">Iniciar sesión</Link>
         </div>
         <div className="nav-btn" style={{ display: auth ? "auto" : "none" }}>
-          <Link to="/userInfo">UserInfo</Link>
+          <Link to="/userInfo">Usuario</Link>
         </div>
         <div className="nav-btn" style={{ display: auth ? "auto" : "none" }}>
           <Link to="/addEvent">Agregar evento</Link>

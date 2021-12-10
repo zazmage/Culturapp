@@ -27,7 +27,7 @@ export const NavigationMenu = styled.div`
   justify-content: space-evenly;
   align-items: center;
   gap: 20px;
-  padding: 0 10px;
+  padding: 0 30px;
   font-size: 2vw;
   a {
     text-decoration: none;
@@ -36,8 +36,8 @@ export const NavigationMenu = styled.div`
     }
   }
   .back-btn {
-    border: solid #FF4500;
-    background-color: #FF4500;
+    border: solid #ff4500;
+    background-color: #ff4500;
     width: 100px;
     img {
       width: 100%;
@@ -55,18 +55,18 @@ export const NavigationMenu = styled.div`
     border-radius: 50%;
   }
   .nav-btn {
-    border: solid #FF4500;
-    background-color: #FF4500;
+    border: solid #ff4500;
+    background-color: #ff4500;
     width: 100px;
   }
   .category-btn {
-    border: solid #FF4500;
-    background-color: #FF4500;
+    border: solid #ff4500;
+    background-color: #ff4500;
     width: 100px;
   }
   .main-page-btn {
-    border: solid #FF4500;
-    background-color: #FF4500;
+    border: solid #ff4500;
+    background-color: #ff4500;
     width: 100px;
     img {
       width: 100%;
