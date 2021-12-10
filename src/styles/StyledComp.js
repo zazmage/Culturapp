@@ -37,13 +37,6 @@ export const FormContainer = styled.div`
   .continue {
     margin: 1.5rem 14rem;
   }
-  .create {
-    text-decoration: none;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
-  }
   button {
     display: flex;
     margin-top: 2rem;

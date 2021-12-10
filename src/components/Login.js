@@ -36,7 +36,7 @@ const Login = () => {
           />
         </div>
         <p>¿Eres nuevo en Culturapp?</p>
-        <Link to="/register">
+        <Link to="/register" style={{textDecoration: 'none'}}>
           <button>Crea tu cuenta de Culturapp</button>
         </Link>
       </FormContainer>
