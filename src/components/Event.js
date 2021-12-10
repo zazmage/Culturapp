@@ -24,7 +24,6 @@ const Event = ({
         <Card>
           <IMG src={imgUrl} alt={eventName} />
           <DivTitle3>
-      
           <H4>{eventName}</H4>
           <TitleFecha>{fecha()}</TitleFecha>
           </DivTitle3>

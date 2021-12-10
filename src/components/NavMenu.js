@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
+
+import { Link, useSearchParams } from "react-router-dom";
+
 
 const NavMenu = () => {
-  let [, setSearchParams] = useSearchParams();
+  let [searchParams, setSearchParams] = useSearchParams([]);
 
-  const handleClick = ({ target }) =>
+  const handleClick = ({ target }) => {
     setSearchParams({ category: target.name });
+  }
+
+
 
   return (
     <div>
@@ -19,10 +23,12 @@ const NavMenu = () => {
       <button onClick={handleClick} name="music">
         Música
       </button>
+
       <Link to="/login">Iniciar sesión</Link>
       <Link to="/addEvent">Agregar evento</Link>
       <Link to="/userInfo">UserInfo</Link>
-    </div>
+
+      </div>
   );
 };
 
