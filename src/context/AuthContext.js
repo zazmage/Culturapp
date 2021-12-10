@@ -12,7 +12,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const authState = getAuth();
-  const [auth, setAuth] = useState(authState);
+  const [auth, setAuth] = useState(authState.currentUser);
 
   const loginEmailPassword = (email, password, navigate) => {
     const authStatus = getAuth();
