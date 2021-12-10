@@ -12,7 +12,8 @@ const NavMenu = () => {
   const { auth } = useContext(AuthContext);
 
   const handleClick = ({ target }) =>
-    setSearchParams({ category: target.name });
+    setSearchParams({ category: target.getAttribute("name") });
+
   const [navMenuVisible, setNavMenuVisible] = useState(false);
   const handleNavMenu = () =>
     setNavMenuVisible((navMenuVisible) => !navMenuVisible);
@@ -45,20 +46,14 @@ const NavMenu = () => {
         <div className="nav-btn" style={{ display: auth ? "auto" : "none" }}>
           <Link to="/addEvent">Agregar evento</Link>
         </div>
-        <div className="category-btn">
-          <p onClick={handleClick} name="cinema">
-            Cine
-          </p>
+        <div className="category-btn" onClick={handleClick} name="cinema">
+          <p name="cinema">Cine</p>
         </div>
-        <div className="category-btn">
-          <p onClick={handleClick} name="theater">
-            Teatro
-          </p>
+        <div className="category-btn" onClick={handleClick} name="theater">
+          <p name="theater">Teatro</p>
         </div>
-        <div className="category-btn">
-          <p onClick={handleClick} name="music">
-            Música
-          </p>
+        <div className="category-btn" onClick={handleClick} name="music">
+          <p name="music">Música</p>
         </div>
       </NavigationMenu>
     </>
