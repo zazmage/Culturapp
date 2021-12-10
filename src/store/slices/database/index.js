@@ -18,16 +18,18 @@ export const { setDatabase } = databaseSlice.actions;
 
 export default databaseSlice.reducer;
 
-export const getData = () => (dispatch) => {
-  getDocs(collection(db, "eventsdb"))
-    .then((res) => {
-      //console.log(res.docs[0].id);
+// GetData es una especie de intermediario entre MainPage y esta página reductora.
+export const getData = () => {
+  return (dispatch) => {
+    getDocs(collection(db, "eventsdb"))
+      .then((res) => {
+        //console.log(res.docs[0].id);
 
-      const database = res.docs.map((el) => {
-        return { ...el.data(), id: el.id };
-      });
-
-      dispatch(setDatabase(database));
-    })
-    .catch((error) => console.log(error));
+        const database = res.docs.map((el) => {
+          return { ...el.data(), id: el.id };
+        });
+        dispatch(setDatabase(database));
+      })
+      .catch((error) => console.log(error));
+  };
 };

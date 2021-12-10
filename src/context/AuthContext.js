@@ -5,7 +5,7 @@ import {
   signInWithPopup,
   updateProfile,
 } from "@firebase/auth";
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { authGoogle } from "../firebase/firebaseConfig";
 
 const AuthContext = createContext();
@@ -17,10 +17,9 @@ const AuthProvider = ({ children }) => {
 
   const loginEmailPassword = (email, password, navigate) => {
     const authStatus = getAuth();
-    console.log(auth);
     signInWithEmailAndPassword(authStatus, email, password)
       .then(({ user }) => {
-        setAuth(user.email);
+        setAuth(user);
         console.log("Bienvenido " + (user.displayName || user.email));
         window.alert("Inicio de sesión exitoso");
         navigate("/", {
@@ -34,15 +33,16 @@ const AuthProvider = ({ children }) => {
   };
 
   const registerEmailPassword = (
-    { name, email, password, secPassword },
+    { name, lastName, email, password, repeatPassword },
     navigate
   ) => {
-    console.log(password, secPassword);
-    if (password === secPassword) {
+    if (password === repeatPassword) {
       const auth = getAuth();
       createUserWithEmailAndPassword(auth, email, password)
         .then(async ({ user }) => {
-          await updateProfile(auth.currentUser, { displayName: name });
+          await updateProfile(auth.currentUser, {
+            displayName: `${name} ${lastName}`,
+          });
           console.log(user);
           window.alert("Registro exitoso");
           navigate("/", {
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
     const auth = getAuth();
     signInWithPopup(auth, authGoogle)
       .then(({ user }) => {
-        setAuth(user.email);
+        setAuth(user);
         console.log("Inicio de sesión exitoso");
         navigate("/", {
           replace: true,
@@ -74,11 +74,18 @@ const AuthProvider = ({ children }) => {
   };
 
   const handleAuth = (e, form, navigate) => {
-    // console.log(navigate);
     e.preventDefault();
     switch (e.target.id) {
       case "login-form":
-        loginEmailPassword(form.email, form.password, navigate);
+        if (form) {
+          if (form.email && form.password) {
+            loginEmailPassword(form.email, form.password, navigate);
+          } else {
+            console.log("Flatan campos");
+          }
+        } else {
+          console.log("Flatan campos");
+        }
         break;
       case "register-form":
         registerEmailPassword(form, navigate);
