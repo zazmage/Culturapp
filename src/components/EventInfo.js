@@ -9,7 +9,7 @@ import {
   Card1, CardInfo,
   ContentCard1,
   ContRelacionados,
-  DivTitle, H41, H42, IMG1,
+  DivTitle, Exit, H41, H42, IMG1,
   IMG2,
   MasInfo,
   P, RedesIcons,
@@ -41,9 +41,9 @@ const EventInfo = () => {
   return (
     <>
       <Link to="/">
-        <div className="exit">
-          <i className="material-icons">chevron_left</i>
-        </div>
+          <Exit>
+          <Exit className="material-icons">chevron_left</Exit>
+          </Exit>
       </Link>
       {eventSelect === null ? (
         <Spinner />
@@ -57,7 +57,7 @@ const EventInfo = () => {
                 <H41>{eventSelect["event-name"]}</H41>
                 <TitleFecha1>{fecha()}</TitleFecha1>
                 <TitleFecha1>{eventSelect.address}</TitleFecha1>
-                <H41>{eventSelect.price}</H41>
+                <H41>${eventSelect.price}</H41>
                 <P>{eventSelect.description}</P>
               </DivTitle>
               <RedesSociales>

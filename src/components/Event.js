@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/MainPage.css";
 import { Link } from "react-router-dom";
-import { Card, ContentCard, H4, IMG, MasInfo, TitleFecha } from '../styles/StyleMainpage';
+import { Card, ContentCard, DivTitle3, H4, IMG, MasInfo, TitleFecha } from '../styles/StyleMainpage';
 
 const Event = ({
   props: {
@@ -22,10 +22,12 @@ const Event = ({
     <>
       <ContentCard>
         <Card>
-          <H4>{organization}</H4>
-          <H4>{eventName}</H4>
           <IMG src={imgUrl} alt={eventName} />
+          <DivTitle3>
+      
+          <H4>{eventName}</H4>
           <TitleFecha>{fecha()}</TitleFecha>
+          </DivTitle3>
           <Link to={`/eventInfo/${id}`}>
             <MasInfo>
               <i className="large material-icons">border_clear</i>
