@@ -36,8 +36,9 @@ export const NavigationMenu = styled.div`
     }
   }
   .back-btn {
-    border: solid black;
-    background-color: black;
+    border: solid #FF4500;
+    background-color: #FF4500;
+    width: 100px;
     img {
       width: 100%;
       object-fit: scale-down;
@@ -54,16 +55,19 @@ export const NavigationMenu = styled.div`
     border-radius: 50%;
   }
   .nav-btn {
-    border: solid blue;
-    background-color: blue;
+    border: solid #FF4500;
+    background-color: #FF4500;
+    width: 100px;
   }
   .category-btn {
-    border: solid black;
-    background-color: black;
+    border: solid #FF4500;
+    background-color: #FF4500;
+    width: 100px;
   }
   .main-page-btn {
-    border: solid #ffffff60;
-    background-color: #ffffff60;
+    border: solid #FF4500;
+    background-color: #FF4500;
+    width: 100px;
     img {
       width: 100%;
       object-fit: scale-down;
