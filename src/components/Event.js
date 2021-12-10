@@ -1,29 +1,38 @@
 import React from 'react';
 import "../styles/MainPage.css";
 import { Link } from "react-router-dom";
+import { Card, ContentCard, H4, IMG, MasInfo, TitleFecha } from '../styles/StyleMainpage';
 
 const Event = ({
   props: {
     "img-url": imgUrl,
     "event-name": eventName,
-    description,
     organization,
-    id,
+    date,
+    id
   },
+
+  fecha = () =>{
+    var time = new Date(date[0])
+    return time.toLocaleString();
+  }
+
 }) => {
   return (
     <>
-      <div className="container">
-        <div className="card">
-          <h4>{organization}</h4>
-          <img src={imgUrl} alt={eventName} />
-          <h4>{eventName}</h4>
-          <p>{description}</p>
+      <ContentCard>
+        <Card>
+          <H4>{organization}</H4>
+          <H4>{eventName}</H4>
+          <IMG src={imgUrl} alt={eventName} />
+          <TitleFecha>{fecha()}</TitleFecha>
           <Link to={`/eventInfo/${id}`}>
-            <span>Leer más</span>
+            <MasInfo>
+              <i className="large material-icons">border_clear</i>
+            </MasInfo>
           </Link>
-        </div>
-      </div>
+        </Card>
+      </ContentCard>
     </>
   );
 };
